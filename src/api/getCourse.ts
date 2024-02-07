@@ -1,3 +1,4 @@
+import { PAGE } from '@/constants/PAGE';
 import { OrgCourseListResponses } from '@/types/OrgCourseListResponse';
 import axios from 'axios';
 
@@ -20,7 +21,7 @@ export default async function getCourse({
         $and: [{ title: `%${title}%` }, { $or: [{ enroll_type, is_free }] }],
       }),
       offset: offset || 0,
-      count: 20,
+      count: PAGE.PAGE_EACH_ELEMENT_COUNT,
     },
   });
 
