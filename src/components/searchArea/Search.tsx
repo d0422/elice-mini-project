@@ -3,14 +3,19 @@ import styled from 'styled-components';
 import SearchIconSVG from '../svg/SearchIconSVG';
 import useDebouce from '@/hooks/useDebounce';
 import { useRouter } from 'next/router';
+import { useSearchParams } from 'next/navigation';
 
 export default function Search() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const debounce = useDebouce<string>((keyword) => {
     router.push({ query: { keyword } });
   }, 300);
 
-  const { value, handleChange } = useInput('', debounce);
+  const { value, handleChange } = useInput(
+    searchParams.get('keyword') || '',
+    debounce
+  );
 
   return (
     <SearchWrapper>

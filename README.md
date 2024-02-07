@@ -14,10 +14,10 @@
 
 - [x] 프로젝트 setting
 - [x] 페이지 Layout 구성
-- [ ] SearchArea 구성
+- [x] SearchArea 구성
   - [x] UI구성
   - [x] 300ms 디바운스 처리
-  - [ ] 검색 시 params변경/새로고침시 params 복구
+  - [x] 검색 시 params변경/새로고침시 params 복구
 - [ ] Filter 구성
   - [ ] Chip 컴포넌트 구성
   - [ ] Chip 요소 상수분리 (무료/유료/선택타입)
