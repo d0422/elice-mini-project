@@ -17,13 +17,13 @@
 - [ ] SearchArea 구성
   - [x] UI구성
   - [x] 300ms 디바운스 처리
-  - [ ] 검색 시 params변경
+  - [ ] 검색 시 params변경/새로고침시 params 복구
 - [ ] Filter 구성
   - [ ] Chip 컴포넌트 구성
   - [ ] Chip 요소 상수분리 (무료/유료/선택타입)
   - [ ] Chip컴포넌트 action 구현 (params 추가)
 - [ ] Middleware API(API routes) 구성
-  - [ ] 필요한 타입만 필터링하여 응답처리
+  - [x] 필요한 타입만 필터링하여 응답처리
   - [ ] API 연동 처리
 - [ ] Body 구성
   - [ ] Label 구성
