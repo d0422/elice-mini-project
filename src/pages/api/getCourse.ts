@@ -1,5 +1,8 @@
 import { COURSE_OBJECT_KEYS } from '@/constants/COURSE_OBJECT_KEYS';
-import { OrgCourseListResponses } from '@/types/OrgCourseListResponse';
+import {
+  OrgCourseData,
+  OrgCourseListResponses,
+} from '@/types/OrgCourseListResponse';
 import axios from 'axios';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
@@ -20,7 +23,7 @@ export default async function handler(
       const keys = Object.keys(eachCourse);
       keys.forEach((key) => {
         if (!COURSE_OBJECT_KEYS.find((objectKey) => objectKey === key))
-          delete eachCourse[key as keyof OrgCourseListResponses['courses'][0]];
+          delete eachCourse[key as keyof OrgCourseData];
       });
     });
   }
