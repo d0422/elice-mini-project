@@ -7,14 +7,14 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import styled from 'styled-components';
 
-export default function Chip({
-  type,
-  value,
-}: {
+interface ChipProps {
   type: ChipType;
   value: ChipValue;
-}) {
+}
+
+export default function Chip({ type, value }: ChipProps) {
   const router = useRouter();
+
   const [isClicked, setIsClicked] = useState(
     alreadyExistQueryValue(router.query[type], value)
   );
