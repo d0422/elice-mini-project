@@ -1,6 +1,7 @@
 import useCoursePage from '@/api/useCoursePage';
 import Pages from '@/components/body/Pages';
 import ResultBody from '@/components/body/ResultBody';
+import Filter from '@/components/filter/Filter';
 import Search from '@/components/searchArea/Search';
 import styled from 'styled-components';
 
@@ -11,6 +12,7 @@ export default function Home() {
   return (
     <PageWrapper>
       <Search />
+      <Filter />
       <ResultBody data={data} />
       <Pages
         currentPage={currentPage}
