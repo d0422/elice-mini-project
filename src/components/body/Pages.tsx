@@ -28,7 +28,8 @@ export default function Pages({
     <PageWrapper>
       {renderPageArray.map((number) => (
         <Page
-          isCurrent={number === currentPage}
+          key={number}
+          $isCurrent={number === currentPage}
           onClick={() => getPageData(number)}
         >
           {number}
@@ -45,14 +46,14 @@ const PageWrapper = styled.div`
   justify-content: center;
   align-items: center;
 `;
-const Page = styled.button<{ isCurrent: boolean }>`
+const Page = styled.button<{ $isCurrent: boolean }>`
   width: 24px;
   height: 24px;
-  color: ${(props) => (props.isCurrent ? 'white' : '#999')};
-  background-color: ${(props) => (props.isCurrent ? '#524fa1' : 'none')};
+  color: ${(props) => (props.$isCurrent ? 'white' : '#999')};
+  background-color: ${(props) => (props.$isCurrent ? '#524fa1' : 'none')};
   border: none;
   &:hover {
-    color: ${(props) => (props.isCurrent ? 'none' : '#524fa1')};
+    color: ${(props) => (props.$isCurrent ? 'none' : '#524fa1')};
     font-weight: bold;
   }
 `;
