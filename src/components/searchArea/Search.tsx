@@ -8,8 +8,11 @@ import { useSearchParams } from 'next/navigation';
 export default function Search() {
   const router = useRouter();
   const searchParams = useSearchParams();
+
   const debounce = useDebouce<string>((keyword) => {
-    router.push({ query: { keyword } });
+    if (keyword) return router.push({ query: { ...router.query, keyword } });
+    delete router.query.keyword;
+    router.push(router);
   }, 300);
 
   const { value, handleChange } = useInput(
