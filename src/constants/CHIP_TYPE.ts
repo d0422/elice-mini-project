@@ -1,10 +1,9 @@
 import { ChipsParams } from '@/api/getCourse';
 
 export type ChipType = 'price';
+export type ChipValue = PriceChipValue;
 
 export type PriceChipValue = 'free' | 'paid';
-
-export type ChipValue = PriceChipValue;
 
 interface ChipInformation {
   value: ChipValue;
