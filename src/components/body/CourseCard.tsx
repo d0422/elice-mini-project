@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import CourseInfoIcons from './CourseInfoIcons';
 import Image from 'next/image';
 
-const getLabelText = (
+export const getLabelText = (
   entrollType: OrgCourseData['enroll_type'],
   isFree: OrgCourseData['is_free']
 ) => {
