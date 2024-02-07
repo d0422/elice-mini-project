@@ -6,7 +6,7 @@ export default function Filter() {
   return (
     <Wrapper>
       {CHIPS_ARRAY.map((chip) => (
-        <Chip type={chip.query} />
+        <Chip key={chip.query} type={chip.query} />
       ))}
     </Wrapper>
   );

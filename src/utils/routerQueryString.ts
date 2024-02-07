@@ -20,3 +20,10 @@ export const updateEachQuery = (
   if (alreadyExist) return removeEachQuery(prevQuery, currentQuery);
   return addEachQuery(prevQuery, currentQuery);
 };
+
+export const alreadyExistQuery = (prev: PrevQuery, current: string) => {
+  if (prev && Array.isArray(prev))
+    return prev.some((query) => query === current);
+  if (prev) return prev === current;
+  return false;
+};
