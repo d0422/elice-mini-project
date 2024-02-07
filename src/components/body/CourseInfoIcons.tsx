@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import ChartIconSVG from '../svg/ChartSVG';
+import ChartIconSVG from '../svg/ChartIconSVG';
+import LabtopIconSVG from '../svg/LabtopIconSVG';
+import CalendarIconSVG from '../svg/CalendarIIconSVG';
 
 export default function CourseInfoIcons() {
   return (
@@ -9,11 +11,11 @@ export default function CourseInfoIcons() {
         <div>난이도: 미설정</div>
       </IconWrapper>
       <IconWrapper>
-        <ChartIconSVG width={24} height={24} color="#777777" />
+        <LabtopIconSVG width={24} height={24} color="#777777" />
         <div>수업: 온라인</div>
       </IconWrapper>
       <IconWrapper>
-        <ChartIconSVG width={24} height={24} color="#777777" />
+        <CalendarIconSVG width={24} height={24} color="#777777" />
         <div>기간: 무제한</div>
       </IconWrapper>
     </div>

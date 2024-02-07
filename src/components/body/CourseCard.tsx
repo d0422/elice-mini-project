@@ -1,6 +1,5 @@
 import { OrgCourseData } from '@/types/OrgCourseListResponse';
 import styled from 'styled-components';
-import ChartIconSVG from '../svg/ChartSVG';
 import CourseInfoIcons from './CourseInfoIcons';
 import Image from 'next/image';
 
