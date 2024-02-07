@@ -7,8 +7,8 @@ export default function ResultBody({ data }: { data: OrgCourseListResponses }) {
     <ResultWrapper>
       <Count>전체 {data.course_count}개</Count>
       <Body>
-        {data.courses.map((course) => (
-          <CourseCard data={course} />
+        {data.courses.map((course, index) => (
+          <CourseCard key={course.title + index} data={course} />
         ))}
       </Body>
     </ResultWrapper>
