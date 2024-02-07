@@ -26,8 +26,8 @@
   - [x] 필요한 타입만 필터링하여 응답처리
   - [ ] API 연동 처리
 - [ ] Body 구성
-  - [ ] Label 구성
-  - [ ] Description 구성
+  - [x] Label 구성
+  - [x] Description 구성
   - [ ] IconText구성
-  - [ ] Logo구성
+  - [x] Logo구성
 - [ ] Pagination 구성
