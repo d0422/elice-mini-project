@@ -1,12 +1,13 @@
-import { CHIPS_ARRAY } from '@/constants/CHIP_TYPE';
+import { CHIPS } from '@/constants/CHIP_TYPE';
 import Chip from './Chip';
 import styled from 'styled-components';
 
 export default function Filter() {
+  const PRICE_CHIPS_ARRAY = Object.values(CHIPS.price);
   return (
     <Wrapper>
-      {CHIPS_ARRAY.map((chip) => (
-        <Chip key={chip.query} type={chip.query} />
+      {PRICE_CHIPS_ARRAY.map((chip) => (
+        <Chip key={chip.value} type="price" value={chip.value} />
       ))}
     </Wrapper>
   );

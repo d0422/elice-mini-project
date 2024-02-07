@@ -1,19 +1,36 @@
-export type ChipType = 'paid' | 'free';
+import { ChipsParams } from '@/api/getCourse';
+
+export type ChipType = 'price';
+
+export type PriceChipValue = 'free' | 'paid';
+
+export type ChipValue = PriceChipValue;
 
 interface ChipInformation {
-  query: ChipType;
+  value: ChipValue;
   title: string;
+  params: ChipsParams;
 }
 
-export const CHIPS: Record<ChipType, ChipInformation> = {
-  free: {
-    query: 'free',
-    title: '무료',
-  },
-  paid: {
-    query: 'paid',
-    title: '유료',
+export const CHIPS: Record<ChipType, Record<ChipValue, ChipInformation>> = {
+  price: {
+    free: {
+      value: 'free',
+      title: '무료',
+      params: {
+        is_free: true,
+        enroll_type: 0,
+      },
+    },
+    paid: {
+      value: 'paid',
+      title: '유료',
+      params: {
+        is_free: false,
+        enroll_type: 0,
+      },
+    },
   },
 };
 
-export const CHIPS_ARRAY = Object.values(CHIPS);
+export const CHIPS_ARRAY = Object.keys(CHIPS) as ChipType[];

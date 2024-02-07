@@ -1,20 +1,29 @@
-import { CHIPS, ChipType } from '@/constants/CHIP_TYPE';
-import { alreadyExistQuery, updateEachQuery } from '@/utils/routerQueryString';
+import { CHIPS, ChipType, ChipValue } from '@/constants/CHIP_TYPE';
+import {
+  alreadyExistQueryValue,
+  updateEachQueryValue,
+} from '@/utils/routerQueryString';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import styled from 'styled-components';
 
-export default function Chip({ type }: { type: ChipType }) {
+export default function Chip({
+  type,
+  value,
+}: {
+  type: ChipType;
+  value: ChipValue;
+}) {
   const router = useRouter();
   const [isClicked, setIsClicked] = useState(
-    alreadyExistQuery(router.query['price'], CHIPS[type].query)
+    alreadyExistQueryValue(router.query[type], value)
   );
 
   const handleClick = () => {
-    const priceQuery = updateEachQuery(
+    const priceQuery = updateEachQueryValue(
       isClicked,
       router.query.price,
-      CHIPS[type].query
+      value
     );
 
     setIsClicked((prev) => !prev);
@@ -33,7 +42,7 @@ export default function Chip({ type }: { type: ChipType }) {
 
   return (
     <ChipWrapper onClick={handleClick} $isClicked={isClicked}>
-      <div>{CHIPS[type].title}</div>
+      <div>{CHIPS[type][value].title}</div>
     </ChipWrapper>
   );
 }
