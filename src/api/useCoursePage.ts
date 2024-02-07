@@ -22,26 +22,21 @@ export default function useCoursePage() {
   const router = useRouter();
 
   useEffect(() => {
-    const params: GetCourseParams = {
-      title: String(router.query.keyword),
-      chips: getChipsParamsData(router),
-      offset: 0,
-    };
-    getCourse(params).then((res) => {
-      setData(res);
-    });
+    setPage(1);
   }, [router.query]);
 
   useEffect(() => {
+    if (!router.isReady) return;
     const params: GetCourseParams = {
       title: String(router.query.keyword),
       chips: getChipsParamsData(router),
       offset: (page - 1) * 20,
     };
+
     getCourse(params).then((res) => {
       setData(res);
     });
-  }, [page]);
+  }, [page, router.isReady, router.query]);
 
   const getPageData = (page: number) => {
     window.scrollTo({ top: 0 });
