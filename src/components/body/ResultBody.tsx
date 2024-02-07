@@ -20,7 +20,7 @@ const ResultWrapper = styled.div`
   flex-direction: column;
   gap: 8px;
   justify-content: center;
-  align-items: center;
+  align-items: start;
 `;
 
 const Count = styled.div`

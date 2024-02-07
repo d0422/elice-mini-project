@@ -25,9 +25,9 @@
 - [ ] Middleware API(API routes) 구성
   - [x] 필요한 타입만 필터링하여 응답처리
   - [ ] API 연동 처리
-- [ ] Body 구성
+- [x] Body 구성
   - [x] Label 구성
   - [x] Description 구성
-  - [ ] IconText구성
+  - [x] IconText구성
   - [x] Logo구성
-- [ ] Pagination 구성
+- [x] Pagination 구성
