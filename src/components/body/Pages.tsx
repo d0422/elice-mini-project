@@ -1,7 +1,7 @@
 import { PAGE } from '@/constants/PAGE';
 import styled from 'styled-components';
 
-const getRenderPageArray = (pageCount: number, currentPage: number) => {
+export const getRenderPageArray = (pageCount: number, currentPage: number) => {
   const pageEnd =
     currentPage + PAGE.SHOW_LIMIT > pageCount
       ? pageCount
