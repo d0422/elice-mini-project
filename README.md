@@ -15,7 +15,7 @@
 - [x] 프로젝트 setting
 - [x] 페이지 Layout 구성
 - [ ] SearchArea 구성
-  - [ ] UI구성
+  - [x] UI구성
   - [ ] 300ms 디바운스 처리
 - [ ] Filter 구성
   - [ ] Chip 컴포넌트 구성
