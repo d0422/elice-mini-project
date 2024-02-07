@@ -1,7 +1,19 @@
 import { useEffect, useState } from 'react';
 import getCourse, { GetCourseParams } from './getCourse';
-import { useRouter } from 'next/router';
+import { NextRouter, useRouter } from 'next/router';
 import { OrgCourseListResponses } from '@/types/OrgCourseListResponse';
+import { CHIPS, CHIPS_ARRAY } from '@/constants/CHIP_TYPE';
+import { alreadyExistQueryValue } from '@/utils/routerQueryString';
+
+const getChipsParamsData = (router: NextRouter) => {
+  const result = CHIPS_ARRAY.map((chip) =>
+    Object.values(CHIPS[chip]).filter(({ value }) =>
+      alreadyExistQueryValue(router.query[chip], value)
+    )
+  ).flat();
+
+  return result.map((chipValue) => chipValue.params);
+};
 
 export default function useCoursePage() {
   const [data, setData] = useState<OrgCourseListResponses>();
@@ -12,8 +24,7 @@ export default function useCoursePage() {
   useEffect(() => {
     const params: GetCourseParams = {
       title: String(router.query.keyword),
-      enroll_type: 0,
-      is_free: false,
+      chips: getChipsParamsData(router),
       offset: 0,
     };
     getCourse(params).then((res) => {
@@ -24,9 +35,8 @@ export default function useCoursePage() {
   useEffect(() => {
     const params: GetCourseParams = {
       title: String(router.query.keyword),
-      enroll_type: 0,
-      is_free: false,
-      offset: page * 20,
+      chips: getChipsParamsData(router),
+      offset: (page - 1) * 20,
     };
     getCourse(params).then((res) => {
       setData(res);

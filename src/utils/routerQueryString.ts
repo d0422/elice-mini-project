@@ -1,27 +1,27 @@
 type PrevQuery = string | string[] | undefined;
 
-export const addEachQuery = (prev: PrevQuery, current: string) => {
+export const addEachQueryValue = (prev: PrevQuery, current: string) => {
   if (prev && Array.isArray(prev)) return [...prev, current];
   if (prev) return [prev, current];
   return current;
 };
 
-export const removeEachQuery = (prev: PrevQuery, current: string) => {
+export const removeEachQueryValue = (prev: PrevQuery, current: string) => {
   if (prev && Array.isArray(prev))
     return prev.filter((query) => query !== current);
   return undefined;
 };
 
-export const updateEachQuery = (
+export const updateEachQueryValue = (
   alreadyExist: boolean,
   prevQuery: PrevQuery,
   currentQuery: string
 ) => {
-  if (alreadyExist) return removeEachQuery(prevQuery, currentQuery);
-  return addEachQuery(prevQuery, currentQuery);
+  if (alreadyExist) return removeEachQueryValue(prevQuery, currentQuery);
+  return addEachQueryValue(prevQuery, currentQuery);
 };
 
-export const alreadyExistQuery = (prev: PrevQuery, current: string) => {
+export const alreadyExistQueryValue = (prev: PrevQuery, current: string) => {
   if (prev && Array.isArray(prev))
     return prev.some((query) => query === current);
   if (prev) return prev === current;
