@@ -2,17 +2,16 @@ import useInput from '@/hooks/useInput';
 import styled from 'styled-components';
 import SearchIconSVG from '../svg/SearchIconSVG';
 import useDebouce from '@/hooks/useDebounce';
-import { useRouter } from 'next/router';
 import { useSearchParams } from 'next/navigation';
+import useQueryParams from '@/hooks/useQueryParams';
 
 export default function Search() {
-  const router = useRouter();
+  const { change, clear } = useQueryParams();
   const searchParams = useSearchParams();
 
   const debounce = useDebouce<string>((keyword) => {
-    if (keyword) return router.push({ query: { ...router.query, keyword } });
-    delete router.query.keyword;
-    router.push(router);
+    if (keyword) change('keyword', keyword);
+    else clear('keyword');
   }, 300);
 
   const { value, handleChange } = useInput(

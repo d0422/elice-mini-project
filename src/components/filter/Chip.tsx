@@ -1,9 +1,5 @@
 import { CHIPS, ChipType, ChipValue } from '@/constants/CHIP_TYPE';
-import {
-  alreadyExistQueryValue,
-  updateEachQueryValue,
-} from '@/utils/routerQueryString';
-import { useRouter } from 'next/router';
+import useQueryParams from '@/hooks/useQueryParams';
 import { useState } from 'react';
 import styled from 'styled-components';
 
@@ -13,31 +9,15 @@ interface ChipProps {
 }
 
 export default function Chip({ type, value }: ChipProps) {
-  const router = useRouter();
+  const { add, remove, search } = useQueryParams();
 
-  const [isClicked, setIsClicked] = useState(
-    alreadyExistQueryValue(router.query[type], value)
-  );
+  const [isClicked, setIsClicked] = useState(search(type, value));
 
   const handleClick = () => {
-    const priceQuery = updateEachQueryValue(
-      isClicked,
-      router.query.price,
-      value
-    );
+    if (!isClicked) add(type, value);
+    else remove(type, value);
 
     setIsClicked((prev) => !prev);
-    if (priceQuery)
-      router.push({
-        query: {
-          ...router.query,
-          price: priceQuery,
-        },
-      });
-    else {
-      delete router.query.price;
-      router.push(router);
-    }
   };
 
   return (

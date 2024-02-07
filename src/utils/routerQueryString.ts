@@ -12,15 +12,6 @@ export const removeEachQueryValue = (prev: PrevQuery, current: string) => {
   return undefined;
 };
 
-export const updateEachQueryValue = (
-  alreadyExist: boolean,
-  prevQuery: PrevQuery,
-  currentQuery: string
-) => {
-  if (alreadyExist) return removeEachQueryValue(prevQuery, currentQuery);
-  return addEachQueryValue(prevQuery, currentQuery);
-};
-
 export const alreadyExistQueryValue = (prev: PrevQuery, current: string) => {
   if (prev && Array.isArray(prev))
     return prev.some((query) => query === current);
