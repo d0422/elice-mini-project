@@ -41,6 +41,7 @@ const SearchWrapper = styled.div`
   border-style: solid;
   border-width: 1px;
   border-radius: 4px;
+  background-color: white;
 `;
 
 const SearchIcon = styled.div`
