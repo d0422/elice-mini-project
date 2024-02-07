@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react';
+import { renderHook, act } from '@testing-library/react';
 import useInput from '../useInput';
 import React from 'react';
 
@@ -18,7 +18,7 @@ describe('useInput기능 테스트', () => {
     } as React.ChangeEvent<HTMLInputElement>;
 
     const { result } = renderHook(() => useInput('', testFn));
-    result.current.handleChange(event);
+    act(() => result.current.handleChange(event));
 
     expect(testFn).toHaveBeenCalledWith('1');
   });
