@@ -44,6 +44,11 @@ router.query라는 브라우저 URL상태가 이미 존재했기 때문입니다
 
 따라서 router.query의 반환값을 활용하여 이전 query 값을 토대로 현재 query 값을 만들어내는 routerQueryString util함수를 만들어주었습니다.
 
+### useQueryParams
+
+NextRouter의 router.query를 계속 사용하다보니 key, value가 계속해서 헷갈리는 문제가 있었습니다.
+이러한 문제를 해결하기 위해 useQueryParams로 NextRouter 메서드를 한번 래핑해주었고, key-value 타입을 명확하게 선언하여 사용하기 좋게 개선하였습니다.
+
 ## hooks
 
 ### useDebounce
