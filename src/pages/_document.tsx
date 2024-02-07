@@ -1,7 +1,6 @@
 import Document, {
   DocumentContext,
   Html,
-  Head,
   Main,
   NextScript,
 } from 'next/document';
@@ -22,8 +21,7 @@ export default class MyDocument extends Document {
         ...initialProps,
         styles: (
           <>
-            {' '}
-            {initialProps.styles} {sheet.getStyleElement()}{' '}
+            {initialProps.styles} {sheet.getStyleElement()}
           </>
         ),
       };
@@ -35,33 +33,6 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head>
-          <link
-            href={`https://fonts.googleapis.com/css2?family=Inter:wght@400;900;500;600;700;800&display=swap`}
-            rel="stylesheet"
-          />
-          <link
-            href={`https://webfontworld.github.io/gmarket/GmarketSans.css`}
-            rel="stylesheet"
-          />
-          <link
-            rel="stylesheet"
-            type="text/css"
-            href={`https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css`}
-          />
-          <link
-            href={`https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap`}
-            rel="stylesheet"
-          />
-          <script
-            src={`https://apis.google.com/js/platform.js?onload=init`}
-            async
-            defer
-          ></script>
-          <link rel="manifest" href="/manifest.json" />
-          <link rel="apple-touch-icon" href="icons/icon-192x192.png"></link>
-          <meta name="msapplication-TileColor" content="#FFFFFF"></meta>
-        </Head>
         <body>
           <Main />
           <NextScript />
