@@ -13,7 +13,7 @@ export default async function handler(
   const response = await axios.get<OrgCourseListResponses>(
     'https://api-rest.elice.io/org/academy/course/list/',
     {
-      params: { ...req.query, offset: 0, count: 20 },
+      params: { ...req.query },
     }
   );
 
