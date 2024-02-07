@@ -21,6 +21,6 @@ export interface OrgCourseData {
 }
 
 export interface OrgCourseListResponses {
-  courseCount: number;
+  course_count: number;
   courses: OrgCourseData[];
 }
