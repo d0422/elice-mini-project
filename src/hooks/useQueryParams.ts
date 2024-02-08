@@ -1,4 +1,4 @@
-import { CHIPS, CHIPS_ARRAY } from '@/constants/CHIP_TYPE';
+import { CHIPS, CHIPS_ARRAY } from '@/constants/CHIPS';
 import { QueryKey } from '@/types/QueryKey';
 import {
   addEachQueryValue,

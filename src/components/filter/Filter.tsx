@@ -1,4 +1,4 @@
-import { CHIPS } from '@/constants/CHIP_TYPE';
+import { CHIPS } from '@/constants/CHIPS';
 import Chip from './Chip';
 import styled from 'styled-components';
 

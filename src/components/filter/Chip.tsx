@@ -1,5 +1,6 @@
-import { CHIPS, ChipType, ChipValue } from '@/constants/CHIP_TYPE';
+import { CHIPS } from '@/constants/CHIPS';
 import useQueryParams from '@/hooks/useQueryParams';
+import { ChipType, ChipValue } from '@/types/Chip';
 import { useState } from 'react';
 import styled from 'styled-components';
 
