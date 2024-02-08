@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
 import getCourse, { GetCourseParams } from './getCourse';
-import { NextRouter, useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import { OrgCourseListResponses } from '@/types/OrgCourseListResponse';
-import { CHIPS, CHIPS_ARRAY } from '@/constants/CHIP_TYPE';
-import { alreadyExistQueryValue } from '@/utils/routerQueryString';
 import useQueryParams from '@/hooks/useQueryParams';
 
 export default function useCoursePage() {
@@ -20,12 +18,12 @@ export default function useCoursePage() {
 
   useEffect(() => {
     if (!router.isReady) return;
+
     const params: GetCourseParams = {
       title: String(getValue('keyword')),
       chips: getAllParams(),
       offset: (page - 1) * 20,
     };
-
     getCourse(params)
       .then((res) => {
         setData(res);
