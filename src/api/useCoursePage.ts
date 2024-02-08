@@ -17,6 +17,7 @@ const getChipsParamsData = (router: NextRouter) => {
 };
 
 export default function useCoursePage() {
+  const [isError, setIsError] = useState(false);
   const [data, setData] = useState<OrgCourseListResponses>();
   const [page, setPage] = useState(1);
   const { getValue } = useQueryParams();
@@ -35,9 +36,13 @@ export default function useCoursePage() {
       offset: (page - 1) * 20,
     };
 
-    getCourse(params).then((res) => {
-      setData(res);
-    });
+    getCourse(params)
+      .then((res) => {
+        setData(res);
+      })
+      .catch(() => {
+        setIsError(true);
+      });
   }, [page, router.isReady, router.query]);
 
   const getPageData = (page: number) => {
@@ -47,6 +52,7 @@ export default function useCoursePage() {
 
   return {
     data,
+    isError,
     currentPage: page,
     pageCount: data ? Math.ceil(data.course_count / 20) : 0,
     getPageData,
