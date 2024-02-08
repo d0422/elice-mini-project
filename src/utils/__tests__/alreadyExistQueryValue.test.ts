@@ -1,4 +1,4 @@
-import { alreadyExistQueryValue } from './routerQueryString';
+import { alreadyExistQueryValue } from '../routerQueryString';
 
 describe('alreadyExistQueryValue', () => {
   it.each([

@@ -1,4 +1,4 @@
-import { removeEachQueryValue } from './routerQueryString';
+import { removeEachQueryValue } from '../routerQueryString';
 
 describe('removeEachQueryValue 기능 테스트', () => {
   it.each([

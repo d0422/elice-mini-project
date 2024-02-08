@@ -1,4 +1,4 @@
-import { addEachQueryValue } from './routerQueryString';
+import { addEachQueryValue } from '../routerQueryString';
 
 describe('addEachQueryValue 기능 테스트', () => {
   it.each([
