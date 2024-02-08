@@ -1,3 +1,4 @@
+import { QueryKey } from '@/types/QueryKey';
 import {
   addEachQueryValue,
   alreadyExistQueryValue,
@@ -5,7 +6,6 @@ import {
 } from '@/utils/routerQueryString';
 import { useRouter } from 'next/router';
 
-type QueryKey = 'keyword' | 'price';
 export default function useQueryParams() {
   const router = useRouter();
 

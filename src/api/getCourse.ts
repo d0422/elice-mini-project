@@ -1,11 +1,8 @@
 import { PAGE } from '@/constants/PAGE';
+import { ChipsParams } from '@/types/Chip';
 import { OrgCourseListResponses } from '@/types/OrgCourseListResponse';
 import axios from 'axios';
 
-export interface ChipsParams {
-  is_free: boolean;
-  enroll_type: 0 | 4;
-}
 export interface GetCourseParams {
   title: string;
   chips: ChipsParams[];
