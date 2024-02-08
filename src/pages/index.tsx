@@ -11,6 +11,8 @@ export default function Home() {
 
   if (isError) return <div>에러가 발생했습니다! 잠시후에 시도해주세요!</div>;
 
+  if (!data) return <div>로딩중</div>;
+
   return (
     <PageWrapper>
       <Search />

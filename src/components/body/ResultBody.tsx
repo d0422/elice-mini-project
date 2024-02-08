@@ -2,13 +2,7 @@ import { OrgCourseListResponses } from '@/types/OrgCourseListResponse';
 import styled from 'styled-components';
 import CourseCard from './CourseCard';
 
-export default function ResultBody({
-  data,
-}: {
-  data?: OrgCourseListResponses;
-}) {
-  if (!data) return <div>로딩중</div>;
-
+export default function ResultBody({ data }: { data: OrgCourseListResponses }) {
   return (
     <ResultWrapper>
       <Count>전체 {data.course_count}개</Count>
