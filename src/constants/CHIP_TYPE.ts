@@ -1,15 +1,4 @@
-import { ChipsParams } from '@/api/getCourse';
-
-export type ChipType = 'price';
-export type ChipValue = PriceChipValue;
-
-export type PriceChipValue = 'free' | 'paid';
-
-interface ChipInformation {
-  value: ChipValue;
-  title: string;
-  params: ChipsParams;
-}
+import { ChipInformation, ChipType, ChipValue } from '@/types/Chip';
 
 export const CHIPS: Record<ChipType, Record<ChipValue, ChipInformation>> = {
   price: {
