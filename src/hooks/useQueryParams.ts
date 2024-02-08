@@ -1,3 +1,4 @@
+import { CHIPS, CHIPS_ARRAY } from '@/constants/CHIP_TYPE';
 import { QueryKey } from '@/types/QueryKey';
 import {
   addEachQueryValue,
@@ -51,5 +52,13 @@ export default function useQueryParams() {
     return alreadyExistQueryValue(router.query[key], searchValue);
   };
 
-  return { add, remove, clear, change, getValue, search };
+  const getAllParams = () => {
+    const result = CHIPS_ARRAY.map((chip) =>
+      Object.values(CHIPS[chip]).filter(({ value }) => search(chip, value))
+    ).flat();
+
+    return result.map((chipValue) => chipValue.params);
+  };
+
+  return { add, remove, clear, change, getValue, search, getAllParams };
 }

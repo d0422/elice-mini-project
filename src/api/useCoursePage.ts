@@ -6,21 +6,11 @@ import { CHIPS, CHIPS_ARRAY } from '@/constants/CHIP_TYPE';
 import { alreadyExistQueryValue } from '@/utils/routerQueryString';
 import useQueryParams from '@/hooks/useQueryParams';
 
-const getChipsParamsData = (router: NextRouter) => {
-  const result = CHIPS_ARRAY.map((chip) =>
-    Object.values(CHIPS[chip]).filter(({ value }) =>
-      alreadyExistQueryValue(router.query[chip], value)
-    )
-  ).flat();
-
-  return result.map((chipValue) => chipValue.params);
-};
-
 export default function useCoursePage() {
   const [isError, setIsError] = useState(false);
   const [data, setData] = useState<OrgCourseListResponses>();
   const [page, setPage] = useState(1);
-  const { getValue } = useQueryParams();
+  const { getValue, getAllParams } = useQueryParams();
 
   const router = useRouter();
 
@@ -32,7 +22,7 @@ export default function useCoursePage() {
     if (!router.isReady) return;
     const params: GetCourseParams = {
       title: String(getValue('keyword')),
-      chips: getChipsParamsData(router),
+      chips: getAllParams(),
       offset: (page - 1) * 20,
     };
 

@@ -3,7 +3,7 @@ import {
   OrgCourseData,
   OrgCourseListResponses,
 } from '@/types/OrgCourseListResponse';
-import axios, { isAxiosError } from 'axios';
+import axios from 'axios';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(
