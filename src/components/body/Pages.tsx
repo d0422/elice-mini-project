@@ -24,8 +24,18 @@ export default function Pages({
   getPageData: (pageNum: number) => void;
 }) {
   const renderPageArray = getRenderPageArray(pageCount, currentPage);
+
+  const getPrevData = () => currentPage != 1 && getPageData(currentPage - 1);
+  const getNextData = () =>
+    currentPage != pageCount && getPageData(currentPage + 1);
+
+  if (!pageCount) return <></>;
+
   return (
     <PageWrapper>
+      <Arrow $isFirstOrLast={currentPage === 1} onClick={getPrevData}>
+        &lt;
+      </Arrow>
       {renderPageArray.map((number) => (
         <Page
           key={number}
@@ -35,6 +45,9 @@ export default function Pages({
           {number}
         </Page>
       ))}
+      <Arrow $isFirstOrLast={currentPage === pageCount} onClick={getNextData}>
+        &gt;
+      </Arrow>
     </PageWrapper>
   );
 }
@@ -56,4 +69,9 @@ const Page = styled.button<{ $isCurrent: boolean }>`
     color: ${(props) => (props.$isCurrent ? 'none' : '#524fa1')};
     font-weight: bold;
   }
+`;
+
+const Arrow = styled.button<{ $isFirstOrLast: boolean }>`
+  color: ${(props) => (props.$isFirstOrLast ? '#ccc' : 'black')};
+  border: none;
 `;
